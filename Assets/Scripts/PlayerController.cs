@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class PlayerController: MonoBehaviour
 {
 
     public Rigidbody2D playerRB;
@@ -21,6 +21,7 @@ public class Player : MonoBehaviour
     public Transform groundCheckPosition; // Location of object to collide with ground.
     public float groundCheckRadius; // Ground radius.
     public LayerMask groundCheckLayer; // Ground layer.
+
 
     void Start()
     {
