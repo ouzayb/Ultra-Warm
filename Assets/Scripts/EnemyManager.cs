@@ -5,6 +5,9 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    [SerializeField] private int healthPoints;
+    [SerializeField] private int damage;
+
     void Start()
     {
 
@@ -12,6 +15,7 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
