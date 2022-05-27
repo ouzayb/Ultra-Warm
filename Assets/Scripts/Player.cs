@@ -49,8 +49,7 @@ public class Player : MonoBehaviour
     public void GetInput()
 
     {
-        input.x = Input.GetAxis("Horizontal");
-        input.y = Input.GetAxis("Vertical");
+        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
     }
 
     void FlipFace()
