@@ -2,21 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class Player : MonoBehaviour
 {
 
     public Rigidbody2D playerRB;
     SpriteRenderer spriteren;
 
-    public Vector2 movement;
+    public Vector2 input;
     Animator playerAnim;
-    bool facingRight = true;
-    public float moveSpeed = 1f;
-    public float jumpSpeed = 1f, jumpFrequency = 1f, nextJumpTime;
-    public bool isGrounded = true;
-    public Transform groundCheckPosition;
-    public float groundCheckRadius;
-    public LayerMask groundCheckLayer;
+    bool facingRight = true; // Checks the facing direction.
+    public bool isGrounded = true; // Checks if the player is on the ground.
+
+    [SerializeField] private float moveSpeed; // Speed of player. DEFAULT = 1f
+    [SerializeField] private float jumpSpeed; // Jump speed of player. DEFAULT = 1f
+    [SerializeField] private float jumpFrequency; // DEFAULT = 1f
+    [SerializeField] private float nextJumpTime;
+
+    public Transform groundCheckPosition; // Location of object to collide with ground.
+    public float groundCheckRadius; // Ground radius.
+    public LayerMask groundCheckLayer; // Ground layer.
 
     void Start()
     {
@@ -27,30 +31,31 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        GetInput();
-        HorizontalMove();
-        FlipFace();
-        Jump();
-        OnGroundCheck();
+        GetInput(); // Function to get horizontal and vertical inputs.
+        HorizontalMove(); // Moves the player with inputs from GetInput function.
+        FlipFace(); // Flips face by checking facing right 1?0 and speed >? 0.
+        Jump(); // Jumps the player if on the ground and vertical input > 0
+        OnGroundCheck(); // Checks whether on the ground or not with groundCheckPosition's location.
 
     }
 
     void HorizontalMove()
     {
-        playerRB.velocity = new Vector2(movement.x * moveSpeed, playerRB.velocity.y);
-        playerAnim.SetFloat("playerSpeed", Mathf.Abs(movement.x * moveSpeed));
+        playerRB.velocity = new Vector2(input.x * moveSpeed, playerRB.velocity.y);
+        playerAnim.SetFloat("playerSpeed", Mathf.Abs(input.x * moveSpeed));
 
     }
 
     public void GetInput()
 
     {
-        movement.x = Input.GetAxis("Horizontal");
-        movement.y = Input.GetAxis("Vertical");
+        input.x = Input.GetAxis("Horizontal");
+        input.y = Input.GetAxis("Vertical");
     }
+
     void FlipFace()
     {
-        if ((movement.x * moveSpeed < 0 && facingRight) || (movement.x * moveSpeed > 0 && !facingRight))
+        if ((input.x * moveSpeed < 0 && facingRight) || (input.x * moveSpeed > 0 && !facingRight))
         {
             facingRight = !facingRight;
             Vector3 tempLocalScale = transform.localScale;
@@ -61,7 +66,7 @@ public class PlayerController : MonoBehaviour
 
     public void Jump()
     {
-        if (movement.y > 0 && isGrounded && (nextJumpTime < Time.timeSinceLevelLoad))
+        if (input.y > 0 && isGrounded && (nextJumpTime < Time.timeSinceLevelLoad))
         {
             nextJumpTime = Time.timeSinceLevelLoad + jumpFrequency;
             playerRB.velocity = (new Vector2(playerRB.velocity.x, jumpSpeed));

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
-    public Transform target;
-    public float cameraSpeed;
+    public Transform target; // Target to follow
+    public float cameraSpeed; // Speed of Camera/Smoothness
     void Start()
     {
         
@@ -13,6 +13,6 @@ public class Camera : MonoBehaviour
 
     void FixedUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, target.position.y, transform.position.z), cameraSpeed);
+        this.transform.position = Vector3.Lerp(transform.position, new Vector3(target.position.x, target.position.y, transform.position.z), cameraSpeed);
     }
 }
