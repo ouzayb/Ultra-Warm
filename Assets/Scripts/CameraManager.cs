@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class CameraManager : MonoBehaviour
 {
     public Transform target; // Target to follow
     public float cameraSpeed; // Speed of Camera/Smoothness
