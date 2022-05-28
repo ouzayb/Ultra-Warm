@@ -36,7 +36,7 @@ public class CombatManager : MonoBehaviour
     private void AttackEnemies()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
-        Debug.Log(hitEnemies.Length);
+        animator.SetTrigger("Attack");
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyManager>().EnemyTakeDamage(attackDamage);
@@ -51,9 +51,9 @@ public class CombatManager : MonoBehaviour
 
         if (playerCurrentHealth <= 0)
         {
-            //animator.SetBool("IsDead", true);
+            animator.SetTrigger("OnDead");
             playerAlive = false;
-            SceneManager.LoadScene(id);
+            //SceneManager.LoadScene(id);
         }
     }
 

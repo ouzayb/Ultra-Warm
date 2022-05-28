@@ -204,7 +204,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 830913956}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.48, z: 0}
+  m_LocalPosition: {x: 0.0036, y: -0.4989, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 897624686}
@@ -251,7 +251,7 @@ MonoBehaviour:
   playerAlive: 1
   id: 0
   playerMaxHealth: 100
-  playerCurrentHealth: 100
+  playerCurrentHealth: 10
   attackRange: 0.12
   nextAttackTime: 0
   attackRate: 2
@@ -290,16 +290,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRB: {fileID: 830913962}
-  isGrounded: 0
-  moveSpeed: 1
-  jumpSpeed: 3.27
-  jumpFrequency: 0.1
-  nextJumpTime: 0.1
+  combatManager: {fileID: 830913960}
   groundCheckPosition: {fileID: 897624686}
   groundCheckRadius: 0.01
   groundCheckLayer:
     serializedVersion: 2
     m_Bits: 8
+  isGrounded: 0
+  moveSpeed: 1
+  jumpSpeed: 3.27
+  jumpFrequency: 0.1
+  nextJumpTime: 0.1
 --- !u!61 &830913964
 BoxCollider2D:
   m_ObjectHideFlags: 0

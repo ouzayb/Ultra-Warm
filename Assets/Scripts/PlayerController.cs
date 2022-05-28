@@ -6,9 +6,14 @@ public class PlayerController: MonoBehaviour
 {
 
     public Rigidbody2D playerRB;
+    private Animator playerAnim;
+    public CombatManager combatManager;
+    public Transform groundCheckPosition; // Location of object to collide with ground.
+    public float groundCheckRadius; // Ground radius.
+    public LayerMask groundCheckLayer; // Ground layer.
 
     private Vector2 input;
-    Animator playerAnim;
+
     bool facingRight = true; // Checks the facing direction.
     public bool isGrounded = true; // Checks if the player is on the ground.
 
@@ -17,9 +22,6 @@ public class PlayerController: MonoBehaviour
     [SerializeField] private float jumpFrequency; // DEFAULT = 1f
     [SerializeField] private float nextJumpTime;
 
-    public Transform groundCheckPosition; // Location of object to collide with ground.
-    public float groundCheckRadius; // Ground radius.
-    public LayerMask groundCheckLayer; // Ground layer.
 
 
     void Start()
@@ -48,7 +50,10 @@ public class PlayerController: MonoBehaviour
     public void GetInput()
 
     {
+        if (combatManager.playerAlive)
+        {
         input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        }
     }
 
     void FlipFace()
