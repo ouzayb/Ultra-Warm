@@ -6,7 +6,7 @@ public class CombatManager : MonoBehaviour
     public Animator animator;
     public LayerMask enemyLayer;
     public Transform attackPoint;
-    
+    HealthManager healthManager;
     public bool playerAlive = true;
     [SerializeField] private int id;
     //[SerializeField] private int playerCurrentHealth;
@@ -51,11 +51,18 @@ public class CombatManager : MonoBehaviour
 
     public void PlayerTakeDamage(int damage)
     {
-        playerCurrentHealth -= damage;
+        /*playerCurrentHealth -= damage;
         Debug.Log("Player Damaged");
         // Hit Animation
 
         if (playerCurrentHealth <= 0)
+        {
+            animator.SetTrigger("OnDead");
+            playerAlive = false;
+            //SceneManager.LoadScene(id);
+        }*/
+        healthManager.getDamaged(damage);
+        if (healthManager.getHealth() == 0)
         {
             animator.SetTrigger("OnDead");
             playerAlive = false;
