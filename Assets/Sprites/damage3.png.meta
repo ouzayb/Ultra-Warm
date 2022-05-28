@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f622b050be15e994cb4aafe1615a2154
+guid: d88ae5e4e8c5d6149908cf756eae9fd0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6144481563439320620
-    second: sitting4_0
+      213: 6336582053773621623
+    second: damage3_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sitting4_0
+      name: damage3_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 4
-        width: 22
-        height: 18
+        x: 27
+        y: 32
+        width: 19
+        height: 22
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2eccb55d65954550800000000000000
-      internalID: 6144481563439320620
+      spriteID: 779ba452ecf00f750800000000000000
+      internalID: 6336582053773621623
       vertices: []
       indices: 
       edges: []

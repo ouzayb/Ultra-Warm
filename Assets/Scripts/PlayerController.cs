@@ -22,8 +22,6 @@ public class PlayerController: MonoBehaviour
     [SerializeField] private float jumpFrequency; // DEFAULT = 1f
     [SerializeField] private float nextJumpTime;
 
-
-
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
@@ -37,6 +35,7 @@ public class PlayerController: MonoBehaviour
         FlipFace(); // Flips face by checking facing right 1?0 and speed >? 0.
         Jump(); // Jumps the player if on the ground and vertical input > 0
         OnGroundCheck(); // Checks whether on the ground or not with groundCheckPosition's location.
+        Sit();
 
     }
 
@@ -86,9 +85,13 @@ public class PlayerController: MonoBehaviour
 
     void Sit()
     {
-        if (Input.GetKeyDown("E"))
+        if (Input.GetAxis("Sit") == 1)
         {
-        playerAnim.SetTrigger("IsSit");
+            playerAnim.SetBool("IsSit", true);
+        }
+        else
+        {
+            playerAnim.SetBool("IsSit", false);
         }
     }
 }
