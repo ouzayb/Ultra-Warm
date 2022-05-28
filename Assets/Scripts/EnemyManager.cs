@@ -52,21 +52,27 @@ public class EnemyManager : MonoBehaviour
     {
         animator.SetFloat("EnemySpeed", Mathf.Abs(enemySpeed));
         float difference = transform.position.x - target.position.x;
-        if (/*combatManager.playerAlive &&*/ difference < 0)
+        if (combatManager.playerAlive && difference < 0)
         {
             enemyRB.velocity = new Vector2(enemySpeed, 0);
+            if (facingLeft) 
+            { 
             facingLeft = !facingLeft;
             Vector3 tempLocalScale = transform.localScale;
-            //tempLocalScale.x *= -1;
+            tempLocalScale.x *= -1;
             transform.localScale = tempLocalScale;
+            }
         }
         else
         {
             enemyRB.velocity = new Vector2(-enemySpeed, 0);
+            if(!facingLeft)
+            {
             facingLeft = !facingLeft;
             Vector3 tempLocalScale = transform.localScale;
-            //tempLocalScale.x *= -1;
+            tempLocalScale.x *= -1;
             transform.localScale = tempLocalScale;
+            }  
         }
     }
 
