@@ -5,6 +5,8 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     [SerializeField] private float timeMultiplier;
+    [SerializeField] private float timeDistance;
+    [SerializeField] private float savedTime = -1;
     [SerializeField] private float stopTime = 1.5f;
     [SerializeField] bool stop = false;
     [SerializeField] bool inProgress = false;
@@ -36,11 +38,12 @@ public class TimeManager : MonoBehaviour
 
     bool NoButtonsPressed()
     {
-        if(Input.GetButton("Horizontal") || Input.GetButton("Vertical") || Input.GetButton("Fire")) //if any key is pressed(this code is sad bcus I'm baad)
+        if(!(Input.GetButton("Horizontal") || Input.GetButton("Vertical") || Input.GetButton("Fire")) && (savedTime <= Time.timeSinceLevelLoad)) //if any key is pressed(this code is sad bcus I'm baad)
         {
-            return false;
+            savedTime = timeDistance + Time.timeSinceLevelLoad;
+            return true;
         }
-        return true;
+        return false;
     }
 
     IEnumerator Timer(float duration, bool inverse)
