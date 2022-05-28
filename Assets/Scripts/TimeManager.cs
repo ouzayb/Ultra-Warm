@@ -5,29 +5,31 @@ using UnityEngine;
 public class TimeManager : MonoBehaviour
 {
     [SerializeField] private float timeMultiplier;
-    [SerializeField] private const float stopTime = 1.5f;
-    [SerializeField] private float stopTimer;
-    [SerializeField] private float waitTime = 1.5f;
+    [SerializeField] private float stopTime = 1.5f;
     [SerializeField] bool stop = false;
     [SerializeField] bool inProgress = false;
     // Start is called before the first frame update
+
+    [SerializeField] private AnimationCurve stopCurve = AnimationCurve.Linear(0, 0, 1, 1);
     void Start()
     {
-        
+        Time.timeScale = 0;
+        stop = true;
     }
 
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(NoButtonsPressed());
         if (NoButtonsPressed() && !inProgress && !stop)
         {
             inProgress = true;
-            StartCoroutine(Timer(true));
+            StartCoroutine(Timer(stopTime, true));
         }
         else if(!NoButtonsPressed() && !inProgress && stop)
         {
             inProgress = true;
-            StartCoroutine(Timer(false));
+            StartCoroutine(Timer(stopTime, false));
 
         }
     }
@@ -41,55 +43,19 @@ public class TimeManager : MonoBehaviour
         return true;
     }
 
-    IEnumerator Timer(bool stopper)
+    IEnumerator Timer(float duration, bool inverse)
     {
-        if (stopper)
+        var t = 0f;
+
+        while(t < duration)
         {
-            stopTimer = stopTime;
-            while (stopTimer > 0)
-            {
-                timeMultiplier = func1(stopTimer);
-                Time.timeScale = timeMultiplier;
-                stopTimer -= waitTime;
-                yield return new WaitForSecondsRealtime(waitTime);
-            }
-            Time.timeScale = 0;
-            inProgress = false;
-            stop = true;
+            t += Time.unscaledDeltaTime;
+            var ratio = t / duration;
 
+            Time.timeScale = Mathf.Lerp(0, 1, stopCurve.Evaluate(inverse ? 1 - ratio : ratio));
+            yield return null;
         }
-        else
-        {
-            stopTimer = 0;
-            while (stopTimer < stopTime)
-            {
-                timeMultiplier = func1(stopTimer);
-                Time.timeScale = timeMultiplier;
-                stopTimer += waitTime;
-                yield return new WaitForSecondsRealtime(waitTime);
-            }
-            Time.timeScale = 1;
-            inProgress = false;
-            stop = false;
-        }
-    }
-        
-    
-
-    float func1(float inp) 
-    {
-        float firstVal = Mathf.Pow(stopTime, 2f);
-        return Mathf.Pow(inp, 2f)/firstVal;  // to satart the values from 1
-    }
-
-    float func2(float inp)
-    {
-        float firstVal = stopTime;
-        return inp / firstVal;  // to satart the values from 1
-    }
-    float func3(float inp)
-    {
-        float firstVal = Mathf.Sin(stopTime * Mathf.PI/(2f* stopTime));
-        return Mathf.Sin(inp * Mathf.PI / (2f * stopTime)) / firstVal;
+        inProgress = false;
+        stop = inverse;
     }
 }

@@ -153,8 +153,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeMultiplier: 0
-  stopTime: 0
+  stopTime: 0.5
+  stopTimer: 0
+  waitTime: 0.005
   stop: 0
+  inProgress: 0
 --- !u!4 &265976504
 Transform:
   m_ObjectHideFlags: 0
@@ -866,7 +869,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerRB: {fileID: 0}
-  input: {x: 0, y: 0}
   isGrounded: 1
   moveSpeed: 5
   jumpSpeed: 0
