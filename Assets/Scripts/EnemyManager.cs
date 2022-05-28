@@ -20,7 +20,7 @@ public class EnemyManager : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.TryGetComponent<Player>(out var player))
+        if (other.TryGetComponent<PlayerController>(out var player))
         {
             throw new NotImplementedException();
         }
