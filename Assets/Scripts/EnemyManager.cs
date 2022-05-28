@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    [SerializeField] private int healthPoints;
-    [SerializeField] private int damage;
+    public Animator animator;
+
+    [SerializeField] private int maxHealth;
+    [SerializeField] private int currentHealth;
+    [SerializeField] private int damageTaken;
+    public CombatManager combatManager;
 
     void Start()
     {
-
+        currentHealth = maxHealth;
     }
 
     void Update()
@@ -23,6 +27,18 @@ public class EnemyManager : MonoBehaviour
         if (other.TryGetComponent<PlayerController>(out var player))
         {
             throw new NotImplementedException();
+        }
+    }
+
+    public void TakeDamage()
+    {
+        currentHealth -= combatManager.attackDamage;
+
+        if (currentHealth <= 0)
+        {
+            animator.SetBool("IsDead", true);
+            GetComponent<Collider2D>().enabled = false;
+            this.enabled = false;
         }
     }
 }
