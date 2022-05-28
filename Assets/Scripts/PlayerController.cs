@@ -43,7 +43,7 @@ public class PlayerController: MonoBehaviour
     void HorizontalMove()
     {
         playerRB.velocity = new Vector2(input.x * moveSpeed, playerRB.velocity.y);
-        playerAnim.SetFloat("PlayerSpeed", Mathf.Abs(input.x * moveSpeed));
+        playerAnim.SetFloat("playerSpeed", Mathf.Abs(input.x * moveSpeed));
 
     }
 
