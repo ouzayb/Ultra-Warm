@@ -9,13 +9,19 @@ public class CombatManager : MonoBehaviour
     
     public bool playerAlive = true;
     [SerializeField] private int id;
-    [SerializeField] private int playerMaxHealth;
-    [SerializeField] private int playerCurrentHealth;
+    //[SerializeField] private int playerCurrentHealth;
+    //[SerializeField] private int playerMaxHealth;
+    [SerializeField] private float firingPenalty;
     [SerializeField] private float attackRange; // DEFAULT 0.5f
     [SerializeField] private float nextAttackTime; // DEFAULT 0f
     [SerializeField] private float attackRate; // DEFAULT 2f
     public int attackDamage; // DEFAULT 40
 
+    void Start()
+    {
+        animator = GetComponent<Animator>();
+        //playerCurrentHealth = playerMaxHealth;
+    }
 
     void Update()
     {
