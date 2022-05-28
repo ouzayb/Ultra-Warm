@@ -10,8 +10,6 @@ public class CombatManager : MonoBehaviour
 
     [SerializeField] private int playerMaxHealth;
     [SerializeField] private int playerCurrentHealth;
-    [SerializeField] private int damageTaken;
-
 
     [SerializeField] private float attackRange; // DEFAULT 0.5f
     [SerializeField] private float nextAttackTime; // DEFAULT 0f
