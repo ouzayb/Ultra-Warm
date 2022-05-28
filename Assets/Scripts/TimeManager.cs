@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField] private float pressedButton;
-    [SerializeField] private float stopTime;
-    [SerializeField] bool stop;
+    [SerializeField] private float timeMultiplier;
+    [SerializeField] private const float stopTime = 1.5f;
+    [SerializeField] private float stopTimer;
+    [SerializeField] private float waitTime = 1.5f;
+    [SerializeField] bool stop = false;
+    [SerializeField] bool inProgress = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,26 +19,77 @@ public class TimeManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (noButtonsPressed())
+        if (NoButtonsPressed() && !inProgress && !stop)
         {
-            Time.timeScale = 0;
-            stop = true;
+            inProgress = true;
+            StartCoroutine(Timer(true));
         }
-        else
+        else if(!NoButtonsPressed() && !inProgress && stop)
         {
-            Time.timeScale = 1;
-            stop = false;
+            inProgress = true;
+            StartCoroutine(Timer(false));
+
         }
-        //if((stopTime < Time.timeSinceLevelLoad))
-        //Time.timeScale = timeMultiplier;
     }
 
-    bool noButtonsPressed()
+    bool NoButtonsPressed()
     {
         if(Input.GetButton("Horizontal") || Input.GetButton("Vertical") || Input.GetButton("Fire")) //if any key is pressed(this code is sad bcus I'm baad)
         {
             return false;
         }
         return true;
+    }
+
+    IEnumerator Timer(bool stopper)
+    {
+        if (stopper)
+        {
+            stopTimer = stopTime;
+            while (stopTimer > 0)
+            {
+                timeMultiplier = func1(stopTimer);
+                Time.timeScale = timeMultiplier;
+                stopTimer -= waitTime;
+                yield return new WaitForSecondsRealtime(waitTime);
+            }
+            Time.timeScale = 0;
+            inProgress = false;
+            stop = true;
+
+        }
+        else
+        {
+            stopTimer = 0;
+            while (stopTimer < stopTime)
+            {
+                timeMultiplier = func1(stopTimer);
+                Time.timeScale = timeMultiplier;
+                stopTimer += waitTime;
+                yield return new WaitForSecondsRealtime(waitTime);
+            }
+            Time.timeScale = 1;
+            inProgress = false;
+            stop = false;
+        }
+    }
+        
+    
+
+    float func1(float inp) 
+    {
+        float firstVal = Mathf.Pow(stopTime, 2f);
+        return Mathf.Pow(inp, 2f)/firstVal;  // to satart the values from 1
+    }
+
+    float func2(float inp)
+    {
+        float firstVal = stopTime;
+        return inp / firstVal;  // to satart the values from 1
+    }
+    float func3(float inp)
+    {
+        float firstVal = Mathf.Sin(stopTime * Mathf.PI/(2f* stopTime));
+        return Mathf.Sin(inp * Mathf.PI / (2f * stopTime)) / firstVal;
     }
 }
