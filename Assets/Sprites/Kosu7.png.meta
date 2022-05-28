@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7bd9ed359a2906141ae3ccea4b8acdce
+guid: 1b52dd69be28c0547b26ee3d2691c8fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5905681027756182028
-    second: idle1_0
+      213: 8279441416821300725
+    second: Kosu7_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -94,13 +94,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: idle1_0
+      name: Kosu7_0
       rect:
         serializedVersion: 2
-        x: 7
-        y: 6
-        width: 13
-        height: 17
+        x: 5
+        y: 7
+        width: 16
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -108,8 +108,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c0acb28ea9135f150800000000000000
-      internalID: 5905681027756182028
+      spriteID: 5fd5a4c2a1c76e270800000000000000
+      internalID: 8279441416821300725
       vertices: []
       indices: 
       edges: []
