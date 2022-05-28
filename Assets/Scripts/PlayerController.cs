@@ -8,7 +8,7 @@ public class PlayerController: MonoBehaviour
     public Rigidbody2D playerRB;
     SpriteRenderer spriteren;
 
-    public Vector2 input;
+    private Vector2 input;
     Animator playerAnim;
     bool facingRight = true; // Checks the facing direction.
     public bool isGrounded = true; // Checks if the player is on the ground.
@@ -76,5 +76,11 @@ public class PlayerController: MonoBehaviour
     void OnGroundCheck()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheckPosition.position, groundCheckRadius, groundCheckLayer);
+        if (isGrounded)
+        {
+            playerAnim.SetBool("IsGrounded", true);
+        }
+        else
+            playerAnim.SetBool("IsGrounded", false);
     }
 }

@@ -5,68 +5,49 @@ using UnityEngine;
 public class CombatManager : MonoBehaviour
 {
     public Animator animator;
-
+    public LayerMask enemyLayer;
     public Transform attackPoint;
 
-    public LayerMask enemyLayer;
+    [SerializeField] private int playerMaxHealth;
+    [SerializeField] private int playerCurrentHealth;
+    [SerializeField] private int damageTaken;
 
-    [SerializeField] private float attackRange;
-    [SerializeField] private float time;
-    public int attackDamage; 
 
-    public float Time
-    {
-        get
-        {
-            return time;
-        }
-        set
-        {
-            if (value > 0) time = value;
-            else time = 0;
-        }
-    }
-
-    void Start()
-    {
-        
-    }
+    [SerializeField] private float attackRange; // DEFAULT 0.5f
+    [SerializeField] private float nextAttackTime; // DEFAULT 0f
+    [SerializeField] private float attackRate; // DEFAULT 2f
+    public int attackDamage; // DEFAULT 40
 
 
     void Update()
     {
-        
-    }
-
-    void HitInput()
-    {
-        if (Input.GetMouseButtonDown(0))
+        if(Time.time >= nextAttackTime && Input.GetMouseButtonDown(0))
         {
-            Attack();
+                Attack();
+                nextAttackTime = Time.time + 1f / attackRate;
         }
     }
 
     void Attack() 
     {
         animator.SetTrigger("Attack");
-        Invoke(nameof(AttackEnemies), 0.1f);
-        
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        if (attackPoint == null)
-            return;
-        //Gizmos.DrawCircle(attackPoint.position, attackRange);
+        //Invoke(nameof(AttackEnemies), 0.1f);
+        AttackEnemies();
     }
 
     private void AttackEnemies()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
+        Debug.Log(hitEnemies.Length);
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<EnemyManager>().TakeDamage();
+            enemy.GetComponent<EnemyManager>().EnemyTakeDamage(attackDamage);
         }
     }
-}
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.grey;
+        Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+}

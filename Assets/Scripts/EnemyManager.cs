@@ -1,20 +1,17 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
     public Animator animator;
-
-    [SerializeField] private int maxHealth;
-    [SerializeField] private int currentHealth;
-    [SerializeField] private int damageTaken;
     public CombatManager combatManager;
+
+    [SerializeField] private int enemyMaxHealth;
+    [SerializeField] private int enemyCurrentHealth;
 
     void Start()
     {
-        currentHealth = maxHealth;
+        enemyCurrentHealth = enemyMaxHealth;
     }
 
     void Update()
@@ -30,11 +27,13 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
-    public void TakeDamage()
+    public void EnemyTakeDamage(int damage)
     {
-        currentHealth -= combatManager.attackDamage;
+        enemyCurrentHealth -= damage;
+        Debug.Log("Damaged");
+        // Hit Animation
 
-        if (currentHealth <= 0)
+        if (enemyCurrentHealth <= 0)
         {
             animator.SetBool("IsDead", true);
             GetComponent<Collider2D>().enabled = false;

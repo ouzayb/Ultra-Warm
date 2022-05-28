@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: d6956e07dc9e86949887a9893650f2dd
+guid: f82cbaa333060a04aa1ad648e467409a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7665934850250708084
-    second: run_4_0
+      213: 3873087697204469031
+    second: spider_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -118,13 +118,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: run_4_0
+      name: spider_0
       rect:
         serializedVersion: 2
-        x: 23
-        y: 16
-        width: 21
-        height: 20
+        x: 24
+        y: 1
+        width: 28
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4741b74612fd26a60800000000000000
-      internalID: 7665934850250708084
+      spriteID: 72ddec77db8ffb530800000000000000
+      internalID: 3873087697204469031
       vertices: []
       indices: 
       edges: []
