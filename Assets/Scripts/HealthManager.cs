@@ -23,7 +23,6 @@ public class HealthManager : MonoBehaviour
     public void getDamaged(float damage)
     {
         currentHealth = currentHealth < damage ? 0 : currentHealth - damage;
-        Debug.Log("Penaltied");
     }
     public float getHealth()
     {
