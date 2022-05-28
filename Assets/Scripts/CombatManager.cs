@@ -36,7 +36,7 @@ public class CombatManager : MonoBehaviour
     private void AttackEnemies()
     {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
-        animator.SetTrigger("Attack");
+        animator.SetTrigger("PlayerAttack");
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyManager>().EnemyTakeDamage(attackDamage);
