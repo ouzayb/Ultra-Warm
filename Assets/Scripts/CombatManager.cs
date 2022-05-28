@@ -53,29 +53,25 @@ public class CombatManager : MonoBehaviour
 
     public void PlayerTakeDamage(int damage)
     {
-        /*playerCurrentHealth -= damage;
-        Debug.Log("Player Damaged");
-        // Hit Animation
-
-        if (playerCurrentHealth <= 0)
-        {
-            animator.SetTrigger("OnDead");
-            playerAlive = false;
-            //SceneManager.LoadScene(id);
-        }*/
         healthManager.getDamaged(damage);
-        if (healthManager.getHealth() == 0)
-        {
-            animator.SetTrigger("OnDead");
-            playerRB.velocity = new Vector2(0,0);
-            playerAlive = false;
-            //SceneManager.LoadScene(id);
-        }
+        animator.SetTrigger("GetDamage");
+        PlayerDie();
     }
 
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.grey;
         Gizmos.DrawWireSphere(attackPoint.position, attackRange);
+    }
+
+    void PlayerDie()
+    {
+        if (healthManager.getHealth() == 0)
+        {
+            animator.SetTrigger("OnDead");
+            playerRB.velocity = new Vector2(0, 0);
+            playerAlive = false;
+            //SceneManager.LoadScene(id);
+        }
     }
 }

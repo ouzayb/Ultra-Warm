@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f622b050be15e994cb4aafe1615a2154
+guid: 1b52dd69be28c0547b26ee3d2691c8fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6144481563439320620
-    second: sitting4_0
+      213: 8279441416821300725
+    second: Kosu7_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -90,40 +90,16 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sitting4_0
+      name: Kosu7_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 4
-        width: 22
+        x: 5
+        y: 7
+        width: 16
         height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -132,8 +108,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2eccb55d65954550800000000000000
-      internalID: 6144481563439320620
+      spriteID: 5fd5a4c2a1c76e270800000000000000
+      internalID: 8279441416821300725
       vertices: []
       indices: 
       edges: []

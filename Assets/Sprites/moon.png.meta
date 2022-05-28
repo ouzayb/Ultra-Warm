@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: f622b050be15e994cb4aafe1615a2154
+guid: 56e5c012d68748948a7b20a1fac51f6d
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 6144481563439320620
-    second: sitting4_0
+      213: 9083969447635318612
+    second: moon_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -90,41 +90,17 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sitting4_0
+      name: moon_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 4
-        width: 22
-        height: 18
+        x: 691
+        y: 121
+        width: 19
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +108,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c2eccb55d65954550800000000000000
-      internalID: 6144481563439320620
+      spriteID: 457fdcc651eb01e70800000000000000
+      internalID: 9083969447635318612
       vertices: []
       indices: 
       edges: []
