@@ -32,6 +32,11 @@ public class CombatManager : MonoBehaviour
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
         }
+        if (healthManager.getHealth() <= 0)
+        {
+            PlayerDie();
+        }
+            
     }
 
     void Attack() 
@@ -54,8 +59,11 @@ public class CombatManager : MonoBehaviour
     public void PlayerTakeDamage(int damage)
     {
         healthManager.getDamaged(damage);
-        animator.SetTrigger("GetDamage");
-        PlayerDie();
+        if (healthManager.getHealth() > 0)
+        {
+            animator.SetTrigger("GetDamage");
+            //Debug.Log("Damaged");
+        }
     }
 
     void OnDrawGizmosSelected()
@@ -66,12 +74,11 @@ public class CombatManager : MonoBehaviour
 
     void PlayerDie()
     {
-        if (healthManager.getHealth() == 0)
-        {
-            animator.SetTrigger("OnDead");
-            playerRB.velocity = new Vector2(0, 0);
+            //Debug.Log("Dead");
+            //playerRB.velocity = new Vector2(0, 0);
+            //playerRB.isKinematic = true;
             playerAlive = false;
+            animator.SetTrigger("OnDead");
             //SceneManager.LoadScene(id);
-        }
     }
 }
