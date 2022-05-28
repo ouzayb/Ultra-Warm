@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public Transform target;
     public Rigidbody2D enemyRB;
     public Animator animator;
     public CombatManager combatManager;
     public bool facingLeft = true;
 
-    [SerializeField] private int enemySpeed;
+    [SerializeField] private float enemySpeed;
     [SerializeField] private int enemyMaxHealth;
     [SerializeField] private int enemyCurrentHealth;
     [SerializeField] private int enemyDamage;
@@ -22,7 +23,7 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
-    
+        FollowPlayer();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -50,12 +51,21 @@ public class EnemyManager : MonoBehaviour
     private void FollowPlayer()
     {
         animator.SetFloat("EnemySpeed", Mathf.Abs(enemySpeed));
-        float difference = transform.position.x - combatManager.gameObject.transform.position.x;
-        if (combatManager.playerAlive && difference < 0)
+        float difference = transform.position.x - target.position.x;
+        if (/*combatManager.playerAlive &&*/ difference < 0)
         {
+            enemyRB.velocity = new Vector2(enemySpeed, 0);
             facingLeft = !facingLeft;
             Vector3 tempLocalScale = transform.localScale;
-            tempLocalScale.x *= -1;
+            //tempLocalScale.x *= -1;
+            transform.localScale = tempLocalScale;
+        }
+        else
+        {
+            enemyRB.velocity = new Vector2(-enemySpeed, 0);
+            facingLeft = !facingLeft;
+            Vector3 tempLocalScale = transform.localScale;
+            //tempLocalScale.x *= -1;
             transform.localScale = tempLocalScale;
         }
     }

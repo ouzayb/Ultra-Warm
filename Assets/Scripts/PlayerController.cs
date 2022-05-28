@@ -42,9 +42,11 @@ public class PlayerController: MonoBehaviour
 
     void HorizontalMove()
     {
+        if(combatManager.playerAlive)
+        {
         playerRB.velocity = new Vector2(input.x * moveSpeed, playerRB.velocity.y);
         playerAnim.SetFloat("PlayerSpeed", Mathf.Abs(input.x * moveSpeed));
-
+        }
     }
 
     public void GetInput()
@@ -71,6 +73,7 @@ public class PlayerController: MonoBehaviour
     {
         if (input.y > 0 && isGrounded && (nextJumpTime < Time.timeSinceLevelLoad))
         {
+            playerAnim.SetTrigger("IsGrounded");
             nextJumpTime = Time.timeSinceLevelLoad + jumpFrequency;
             playerRB.velocity = (new Vector2(playerRB.velocity.x, jumpSpeed));
         }
@@ -79,11 +82,11 @@ public class PlayerController: MonoBehaviour
     void OnGroundCheck()
     {
         isGrounded = Physics2D.OverlapCircle(groundCheckPosition.position, groundCheckRadius, groundCheckLayer);
-        if (isGrounded)
-        {
-            playerAnim.SetBool("IsGrounded", true);
-        }
-        else
-            playerAnim.SetBool("IsGrounded", false);
+        //if (isGrounded)
+        //{
+        //    playerAnim.SetBool("IsGrounded", true);
+        //}
+        //else
+        //    playerAnim.SetBool("IsGrounded", false);
     }
 }

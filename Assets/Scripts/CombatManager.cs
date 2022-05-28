@@ -3,10 +3,11 @@ using UnityEngine.SceneManagement;
 
 public class CombatManager : MonoBehaviour
 {
+    public Rigidbody2D playerRB;
     public Animator animator;
     public LayerMask enemyLayer;
     public Transform attackPoint;
-    HealthManager healthManager;
+    public HealthManager healthManager;
     public bool playerAlive = true;
     [SerializeField] private int id;
     //[SerializeField] private int playerCurrentHealth;
@@ -20,6 +21,7 @@ public class CombatManager : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        playerRB = GetComponent<Rigidbody2D>();
         //playerCurrentHealth = playerMaxHealth;
     }
 
@@ -65,6 +67,7 @@ public class CombatManager : MonoBehaviour
         if (healthManager.getHealth() == 0)
         {
             animator.SetTrigger("OnDead");
+            playerRB.velocity = new Vector2(0,0);
             playerAlive = false;
             //SceneManager.LoadScene(id);
         }
