@@ -6,7 +6,6 @@ public class PlayerController: MonoBehaviour
 {
 
     public Rigidbody2D playerRB;
-    SpriteRenderer spriteren;
 
     private Vector2 input;
     Animator playerAnim;
@@ -26,7 +25,6 @@ public class PlayerController: MonoBehaviour
     void Start()
     {
         playerRB = GetComponent<Rigidbody2D>();
-        spriteren = GetComponent<SpriteRenderer>();
         playerAnim = GetComponent<Animator>();
     }
 
@@ -43,7 +41,7 @@ public class PlayerController: MonoBehaviour
     void HorizontalMove()
     {
         playerRB.velocity = new Vector2(input.x * moveSpeed, playerRB.velocity.y);
-        playerAnim.SetFloat("playerSpeed", Mathf.Abs(input.x * moveSpeed));
+        playerAnim.SetFloat("PlayerSpeed", Mathf.Abs(input.x * moveSpeed));
 
     }
 
