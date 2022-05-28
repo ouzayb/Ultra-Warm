@@ -5,8 +5,9 @@ using UnityEngine;
 public class HealthManager : MonoBehaviour
 {
 
-    [SerializeField] private int playerMaxHealth;
-    [SerializeField] private int currentHealth;
+    [SerializeField] private float playerMaxHealth;
+    [SerializeField] private float currentHealth;
+    [SerializeField] private float timeSaved=0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,15 +20,20 @@ public class HealthManager : MonoBehaviour
         
     }
 
-    public void getDamaged(int damage)
+    public void getDamaged(float damage)
     {
         currentHealth = currentHealth < damage ? 0 : currentHealth - damage;
         Debug.Log("Penaltied");
     }
-    public int getHealth()
+    public float getHealth()
     {
-        Debug.Log("Penaltied");
         return currentHealth;
+    }
+
+    void decrementHealth()
+    {
+       getDamaged(Time.timeSinceLevelLoad - timeSaved);
+       timeSaved = Time.timeSinceLevelLoad;
     }
 
 }
