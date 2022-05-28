@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 830913959}
   - component: {fileID: 830913960}
   - component: {fileID: 830913963}
+  - component: {fileID: 830913961}
   m_Layer: 4
   m_Name: Player
   m_TagString: Player
@@ -184,13 +185,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: -5071563641634004584, guid: 6d653c017a965a14f8305977108434fa, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.18, y: 0.22}
+  m_Size: {x: 0.2, y: 0.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -243,19 +244,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81802897fb4473746af42108ea8ec962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerRB: {fileID: 0}
   animator: {fileID: 830913959}
   enemyLayer:
     serializedVersion: 2
     m_Bits: 64
   attackPoint: {fileID: 1289184233}
+  healthManager: {fileID: 830913961}
   playerAlive: 1
   id: 0
-  playerMaxHealth: 100
-  playerCurrentHealth: 10
+  firingPenalty: 0
   attackRange: 0.12
   nextAttackTime: 0
   attackRate: 2
   attackDamage: 40
+--- !u!114 &830913961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 830913956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1715d4348df50914abafa5d427e7ea81, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerMaxHealth: 100
+  currentHealth: 100
 --- !u!50 &830913962
 Rigidbody2D:
   serializedVersion: 4
@@ -297,7 +313,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   isGrounded: 0
-  moveSpeed: 1
+  moveSpeed: 1.2
   jumpSpeed: 3.27
   jumpFrequency: 0.1
   nextJumpTime: 0.1
@@ -319,7 +335,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.18, y: 0.22}
-    newSize: {x: 0.18, y: 0.22}
+    newSize: {x: 0.2, y: 0.23}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -646,11 +662,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3341bee02efd6844694007b9d886fc50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyRB: {fileID: 0}
+  target: {fileID: 830913958}
+  enemyRB: {fileID: 1712811386}
   animator: {fileID: 1712811384}
   combatManager: {fileID: 830913960}
   facingLeft: 1
-  enemySpeed: 0
+  enemySpeed: 0.8
   enemyMaxHealth: 300
   enemyCurrentHealth: 300
   enemyDamage: 20
@@ -788,6 +805,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3341bee02efd6844694007b9d886fc50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   enemyRB: {fileID: 0}
   animator: {fileID: 1888803043}
   combatManager: {fileID: 830913960}
