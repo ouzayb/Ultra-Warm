@@ -10,10 +10,10 @@ public class HurtTextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("k")) CreateText();
+        if (Input.GetKeyDown("k")) CreateText(5);
     }
 
-    public void CreateText(/*int damage*/)
+    public void CreateText(int damage)
     {
         Debug.Log("bbob");
         GameObject DamageText = Instantiate(damageTextPrefab, transform);
