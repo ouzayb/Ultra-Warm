@@ -47,10 +47,11 @@ public class EnemyManager : MonoBehaviour
     public void EnemyTakeDamage(int damage)
     {
         enemyCurrentHealth -= damage;
-        Debug.Log("Enemy Damaged");
-        // Hit Animation
-
-        if (enemyCurrentHealth <= 0)
+        if (enemyCurrentHealth != 0)
+        {
+        animator.SetTrigger("IsDamaged");
+        }
+        else if (enemyCurrentHealth <= 0)
         {
             animator.SetBool("IsDead", true);
             //GetComponent<Collider2D>().enabled = false;
@@ -94,6 +95,7 @@ public class EnemyManager : MonoBehaviour
     public void AttackPlayer()
     {
         combatManager.GetComponent<CombatManager>().PlayerTakeDamage(enemyDamage);
+        animator.SetTrigger("EnemyAttack");
     }
 
     private void OnCollisionEnter2D(Collision2D other)
