@@ -94,6 +94,7 @@ public class PlayerController: MonoBehaviour
         if (Input.GetAxis("Sit") == 1)
         {
             playerAnim.SetBool("IsSit", true);
+            Time.timeScale = 1;
         }
         else
         {

@@ -13,6 +13,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private int enemyMaxHealth;
     [SerializeField] private int enemyCurrentHealth;
     [SerializeField] private int enemyDamage;
+    [SerializeField] private int followRange;
 
     void Start()
     {
@@ -23,6 +24,8 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
+        float difference = transform.position.x - target.position.x;
+        if(Math.Abs(difference) > followRange)
         FollowPlayer();
     }
 

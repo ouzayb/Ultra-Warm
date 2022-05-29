@@ -356,12 +356,12 @@ GameObject:
   m_Component:
   - component: {fileID: 1712811389}
   - component: {fileID: 1712811388}
-  - component: {fileID: 1712811387}
   - component: {fileID: 1712811386}
+  - component: {fileID: 1712811387}
   - component: {fileID: 1712811385}
   - component: {fileID: 1712811384}
   m_Layer: 6
-  m_Name: Geisha
+  m_Name: Gaysha
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -407,6 +407,7 @@ MonoBehaviour:
   enemyMaxHealth: 300
   enemyCurrentHealth: 300
   enemyDamage: 20
+  followRange: 2
 --- !u!50 &1712811386
 Rigidbody2D:
   serializedVersion: 4
@@ -428,8 +429,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!70 &1712811387
-CapsuleCollider2D:
+--- !u!61 &1712811387
+BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -442,8 +443,18 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.18, y: 0.22}
+    newSize: {x: 0.18, y: 0.22}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
   m_Size: {x: 0.18, y: 0.22}
-  m_Direction: 0
+  m_EdgeRadius: 0
 --- !u!212 &1712811388
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -483,7 +494,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 4761237510719539615, guid: f90110e5ec3ab8b4da05a027ee24942a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -550,6 +561,7 @@ MonoBehaviour:
   enemyMaxHealth: 100
   enemyCurrentHealth: 100
   enemyDamage: 10
+  followRange: 0
 --- !u!61 &1888803040
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -615,7 +627,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 5
   m_Sprite: {fileID: 3873087697204469031, guid: f82cbaa333060a04aa1ad648e467409a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -667,6 +679,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2028748874559071748, guid: bdf824762d4051f459ec7714326670f9, type: 3}
+      propertyPath: attackPenalty
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028748874559071749, guid: bdf824762d4051f459ec7714326670f9, type: 3}
+      propertyPath: currentHealth
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 2028748874559071749, guid: bdf824762d4051f459ec7714326670f9, type: 3}
+      propertyPath: playerMaxHealth
+      value: 60
+      objectReference: {fileID: 0}
     - target: {fileID: 2028748874559071752, guid: bdf824762d4051f459ec7714326670f9, type: 3}
       propertyPath: m_Name
       value: Player
