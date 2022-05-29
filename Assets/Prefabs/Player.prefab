@@ -241,6 +241,7 @@ MonoBehaviour:
   attackRange: 0.19
   nextAttackTime: 0
   attackRate: 2
+  attackPenalty: 0
   attackDamage: 40
 --- !u!114 &2028748874559071751
 MonoBehaviour:
@@ -278,6 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1715d4348df50914abafa5d427e7ea81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TextManager: {fileID: 0}
   clock: {fileID: 0}
   playerMaxHealth: 20
   currentHealth: 10
