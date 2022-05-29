@@ -8,7 +8,7 @@ public class CanvasOpener : MonoBehaviour
 {
     void Start()
     {
-        this.GetComponent<Image>().DOFade(0, 0.3f);
+        this.GetComponent<Image>().DOFade(0, 0);
     }
 
     // Update is called once per frame
