@@ -9,6 +9,7 @@ public class CombatManager : MonoBehaviour
     public Transform attackPoint;
     public HealthManager healthManager;
     public KnockbackManager knockbackManager;
+    public SoundPlayer soundPlayer;
     public bool playerAlive = true;
     [SerializeField] private int id;
     [SerializeField] private float firingPenalty;
@@ -29,8 +30,9 @@ public class CombatManager : MonoBehaviour
     {
         if(Time.timeSinceLevelLoad >= nextAttackTime && Input.GetAxis("Fire") == 1 && playerAlive)
         {
-                Attack();
-                nextAttackTime = Time.timeSinceLevelLoad + 1f / attackRate;
+            Attack();
+            nextAttackTime = Time.timeSinceLevelLoad + 1f / attackRate;
+            soundPlayer.playKatana();
         }
         if (healthManager.getHealth() <= 0 && playerAlive)
         {
