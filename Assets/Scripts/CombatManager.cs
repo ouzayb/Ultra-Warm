@@ -10,7 +10,6 @@ public class CombatManager : MonoBehaviour
     public HealthManager healthManager;
     public bool playerAlive = true;
     [SerializeField] private int id;
-    [SerializeField] private float firingPenalty;
     [SerializeField] private float attackRange; // DEFAULT 0.5f
     [SerializeField] private float nextAttackTime; // DEFAULT 0f
     [SerializeField] private float attackRate; // DEFAULT 2f
@@ -40,10 +39,10 @@ public class CombatManager : MonoBehaviour
 
     void Attack() 
     {
-            Debug.Log("1");
+        Debug.Log("1");
         animator.SetTrigger("PlayerAttack");
         healthManager.getDamaged(attackPenalty);
-            Debug.Log("2");
+        Debug.Log("2");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider2D enemy in hitEnemies)
         {
