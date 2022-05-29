@@ -56,7 +56,7 @@ public class EnemyManager : MonoBehaviour
     public void EnemyTakeDamage(int damage)
     {
         enemyCurrentHealth -= damage;
-        if (enemyCurrentHealth != 0)
+        if (enemyCurrentHealth > 0)
         {
         animator.SetTrigger("IsDamaged");
         }
@@ -113,10 +113,5 @@ public class EnemyManager : MonoBehaviour
         {
             AttackPlayer();
         }
-    }
-
-    public void EnemyDie()
-    {
-
     }
 }
