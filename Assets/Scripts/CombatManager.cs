@@ -10,8 +10,6 @@ public class CombatManager : MonoBehaviour
     public HealthManager healthManager;
     public bool playerAlive = true;
     [SerializeField] private int id;
-    //[SerializeField] private int playerCurrentHealth;
-    //[SerializeField] private int playerMaxHealth;
     [SerializeField] private float firingPenalty;
     [SerializeField] private float attackRange; // DEFAULT 0.5f
     [SerializeField] private float nextAttackTime; // DEFAULT 0f
@@ -27,29 +25,21 @@ public class CombatManager : MonoBehaviour
 
     void Update()
     {
-        if(Time.time >= nextAttackTime && Input.GetAxis("Fire") == 1)
+        if(Time.time >= nextAttackTime && Input.GetAxis("Fire") == 1 && playerAlive)
         {
                 Attack();
                 nextAttackTime = Time.time + 1f / attackRate;
         }
-        if (healthManager.getHealth() <= 0)
+        if (healthManager.getHealth() <= 0 && playerAlive)
         {
             PlayerDie();
         }
-            
     }
 
     void Attack() 
     {
         animator.SetTrigger("PlayerAttack");
-        //Invoke(nameof(AttackEnemies), 0.1f);
-        AttackEnemies();
-    }
-
-    private void AttackEnemies()
-    {
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
-        animator.SetTrigger("PlayerAttack");
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyManager>().EnemyTakeDamage(attackDamage);
@@ -77,8 +67,8 @@ public class CombatManager : MonoBehaviour
             //Debug.Log("Dead");
             //playerRB.velocity = new Vector2(0, 0);
             //playerRB.isKinematic = true;
-            playerAlive = false;
             animator.SetTrigger("OnDead");
+            playerAlive = false;
             //SceneManager.LoadScene(id);
     }
 }
