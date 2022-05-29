@@ -208,7 +208,6 @@ MonoBehaviour:
   attackPoint: {fileID: 345182935124680568}
   healthManager: {fileID: 345182934899242994}
   knockbackManager: {fileID: 345182934899242993}
-  soundPlayer: {fileID: 0}
   playerAlive: 1
   id: 0
   firingPenalty: 0
