@@ -14,6 +14,15 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private int enemyCurrentHealth;
     [SerializeField] private int enemyDamage;
     [SerializeField] private float followRange;
+    //public bool isKnock;
+    //public int knockbackDir;
+
+    //public void getKnockedBack(int _knockbackDir)
+    //{
+    //    isKnock = true;
+    //    isKnockDuration = isKnockMAx;
+
+    //}
 
     void Start()
     {

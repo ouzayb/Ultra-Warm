@@ -1,22 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class HurtTextManager : MonoBehaviour
 {
-    public GameObject damageTextPrefab;
+    public GameObject damageTextPrefab, textParent;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("k")) CreateText(5);
     }
 
     public void CreateText(int damage)
     {
-        Debug.Log("bbob");
-        GameObject DamageText = Instantiate(damageTextPrefab, transform);
-        DamageText.GetComponent<TextMeshPro>().text= "- hhhhhhhhhhhh" /*+ damage.ToString() + " seconds lost"*/;
+        GameObject DamageText = Instantiate(damageTextPrefab, new Vector3(transform.position.x - 0.27f, transform.position.y + 0.16f, transform.position.z) ,new Quaternion(0,0,0,0),textParent.transform);
+        DamageText.GetComponent<TextMesh>().text= damage.ToString() + " seconds lost";
     }
 }
