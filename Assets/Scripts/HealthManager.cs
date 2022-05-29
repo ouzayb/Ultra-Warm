@@ -6,6 +6,7 @@ using TMPro;
 
 public class HealthManager : MonoBehaviour
 {
+    [SerializeField] private HurtTextManager TextManager;
     [SerializeField] private TextMeshProUGUI clock; 
     [SerializeField] private float playerMaxHealth;
     [SerializeField] private float currentHealth;
@@ -25,6 +26,11 @@ public class HealthManager : MonoBehaviour
 
     public void getDamaged(float damage)
     {
+        TextManager.CreateText((int)damage);
+        currentHealth = currentHealth < damage ? 0 : currentHealth - damage;
+    }
+    public void getDamagedWOtext(float damage)
+    {;
         currentHealth = currentHealth < damage ? 0 : currentHealth - damage;
     }
     public float getHealth()
@@ -34,7 +40,7 @@ public class HealthManager : MonoBehaviour
 
     void decrementHealth()
     {
-       getDamaged(Time.timeSinceLevelLoad - timeSaved);
+       getDamagedWOtext(Time.timeSinceLevelLoad - timeSaved);
        timeSaved = Time.timeSinceLevelLoad;
     }
     void show()

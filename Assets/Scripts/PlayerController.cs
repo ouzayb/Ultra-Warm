@@ -65,7 +65,7 @@ public class PlayerController: MonoBehaviour
 
     void FlipFace()
     {
-        if ((input.x * moveSpeed < 0 && facingRight) || (input.x * moveSpeed > 0 && !facingRight))
+        if ((input.x * moveSpeed < 0 && facingRight) || (input.x * moveSpeed > 0 && !facingRight) && combatManager.playerAlive)
         {
             facingRight = !facingRight;
             Vector3 tempLocalScale = transform.localScale;
@@ -76,15 +76,11 @@ public class PlayerController: MonoBehaviour
 
     public void Jump()
     {
-        if (input.y > 0 && isGrounded && (nextJumpTime < Time.timeSinceLevelLoad))
+        if (input.y > 0 && isGrounded && (nextJumpTime < Time.timeSinceLevelLoad) && combatManager.playerAlive)
         {
-            playerAnim.SetBool("IsGrounded", true);
             nextJumpTime = Time.timeSinceLevelLoad + jumpFrequency;
             playerRB.velocity = (new Vector2(playerRB.velocity.x, jumpSpeed));
-        }
-        else
-        {
-            playerAnim.SetBool("IsGrounded", false);
+            playerAnim.SetTrigger("Jump");
         }
     }
 
@@ -98,15 +94,11 @@ public class PlayerController: MonoBehaviour
         if (Input.GetAxis("Sit") == 1)
         {
             playerAnim.SetBool("IsSit", true);
+            Time.timeScale = 1;
         }
         else
         {
             playerAnim.SetBool("IsSit", false);
         }
-    }
-
-    public void Death()
-    {
-
     }
 }
