@@ -8,6 +8,7 @@ public class CombatManager : MonoBehaviour
     public LayerMask enemyLayer;
     public Transform attackPoint;
     public HealthManager healthManager;
+    public KnockbackManager knockbackManager;
     public bool playerAlive = true;
     [SerializeField] private int id;
     [SerializeField] private float firingPenalty;
@@ -44,7 +45,11 @@ public class CombatManager : MonoBehaviour
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider2D enemy in hitEnemies)
         {
-            enemy.GetComponent<EnemyManager>().EnemyTakeDamage(attackDamage);
+            if (enemy.GetComponent<EnemyManager>().enemyAlive)
+            {
+                enemy.GetComponent<EnemyManager>().EnemyTakeDamage(attackDamage);
+                if(enemy.GetComponent<EnemyManager>().enemyAlive) knockbackManager.Knock(transform, enemy.transform, 0.01f, 55f);
+            }
         }
     }
 

@@ -7,7 +7,7 @@ using TMPro;
 public class HealthManager : MonoBehaviour
 {
     [SerializeField] private HurtTextManager TextManager;
-    [SerializeField] private TextMeshProUGUI clock; 
+    [SerializeField] private Text clock; 
     [SerializeField] private float playerMaxHealth;
     [SerializeField] private float currentHealth;
     [SerializeField] private float timeSaved=0;

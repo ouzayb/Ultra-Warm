@@ -6,7 +6,6 @@ public class KnockbackManager : MonoBehaviour
 {
     public float timeScale = 0.1f;
     public float knocbackTime = 0.75f;
-    bool inProgress = false;
     void Start()
     {
         
@@ -24,12 +23,10 @@ public class KnockbackManager : MonoBehaviour
         if(difference >= 0)
         {
             StartCoroutine(Knocking(target, strenght, jump,true));
-            inProgress = true;
         }
         else
         {
-            StartCoroutine(Knocking(target, strenght, jump, true));
-            inProgress = true;
+            StartCoroutine(Knocking(target, strenght, jump, false));
         }
     }
 
@@ -42,10 +39,9 @@ public class KnockbackManager : MonoBehaviour
                 t += Time.deltaTime;
                 var ratio = t / knocbackTime;
 
-                if(left) target.localPosition -= new Vector3(strenght * timeScale, strenght * timeScale / jump, 0);
-                else  target.localPosition += new Vector3(strenght * timeScale, strenght * timeScale / jump, 0);
+                if(left) target.localPosition -= new Vector3(strenght, -strenght / jump, 0);
+                else  target.localPosition += new Vector3(strenght , strenght / jump, 0);
                 yield return null;
             }
-            inProgress = false;
         }
 }
