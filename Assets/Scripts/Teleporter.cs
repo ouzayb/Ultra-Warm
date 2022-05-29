@@ -9,7 +9,7 @@ public class Teleporter : MonoBehaviour
 {
     public Transform Player;
     public Transform Cam;
-    public Transform TeleportGround;
+    public Vector3 TeleportPlace;
     public GameObject Fader;
     float teleportTime = 0.3f, fadeTime = 0.3f;
     float nextTeleport;
@@ -25,8 +25,8 @@ public class Teleporter : MonoBehaviour
     {
 	    if(teleport == true && nextTeleport < Time.timeSinceLevelLoad)
         {
-            Player.position = TeleportGround.position + characterDifferenceToCam;
-            Cam.position = TeleportGround.position;
+            Player.position = TeleportPlace + characterDifferenceToCam;
+            Cam.position = TeleportPlace;
             teleport = false;
             Fader.GetComponent<Image>().DOFade(0, fadeTime);
         }
