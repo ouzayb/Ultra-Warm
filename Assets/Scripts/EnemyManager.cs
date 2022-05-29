@@ -14,6 +14,15 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private int enemyCurrentHealth;
     [SerializeField] private int enemyDamage;
     [SerializeField] private float followRange;
+    //public bool isKnock;
+    //public int knockbackDir;
+
+    //public void getKnockedBack(int _knockbackDir)
+    //{
+    //    isKnock = true;
+    //    isKnockDuration = isKnockMAx;
+
+    //}
 
     void Start()
     {
@@ -47,10 +56,11 @@ public class EnemyManager : MonoBehaviour
     public void EnemyTakeDamage(int damage)
     {
         enemyCurrentHealth -= damage;
-        Debug.Log("Enemy Damaged");
-        // Hit Animation
-
-        if (enemyCurrentHealth <= 0)
+        if (enemyCurrentHealth != 0)
+        {
+        animator.SetTrigger("IsDamaged");
+        }
+        else if (enemyCurrentHealth <= 0)
         {
             animator.SetBool("IsDead", true);
             //GetComponent<Collider2D>().enabled = false;
@@ -94,6 +104,7 @@ public class EnemyManager : MonoBehaviour
     public void AttackPlayer()
     {
         combatManager.GetComponent<CombatManager>().PlayerTakeDamage(enemyDamage);
+        animator.SetTrigger("EnemyAttack");
     }
 
     private void OnCollisionEnter2D(Collision2D other)
