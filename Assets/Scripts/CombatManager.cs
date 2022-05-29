@@ -29,7 +29,8 @@ public class CombatManager : MonoBehaviour
         if(Time.time >= nextAttackTime && Input.GetAxis("Fire") == 1 && playerAlive)
         {
                 Attack();
-                nextAttackTime = Time.time + 1f / attackRate;
+
+            nextAttackTime = Time.time + 1f / attackRate;
         }
         if (healthManager.getHealth() <= 0 && playerAlive)
         {
@@ -39,8 +40,10 @@ public class CombatManager : MonoBehaviour
 
     void Attack() 
     {
+            Debug.Log("1");
         animator.SetTrigger("PlayerAttack");
         healthManager.getDamaged(attackPenalty);
+            Debug.Log("2");
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider2D enemy in hitEnemies)
         {

@@ -339,7 +339,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1277342946}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4623b8b9ab026c0418e89f47dc42ebbc, type: 3}
   m_Name: 
@@ -383,11 +383,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2028748874559071749, guid: bdf824762d4051f459ec7714326670f9, type: 3}
       propertyPath: currentHealth
-      value: 60
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2028748874559071749, guid: bdf824762d4051f459ec7714326670f9, type: 3}
       propertyPath: playerMaxHealth
-      value: 10000
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2028748874559071750, guid: bdf824762d4051f459ec7714326670f9, type: 3}
       propertyPath: m_Interpolate
@@ -571,6 +571,10 @@ PrefabInstance:
       propertyPath: enemyRB
       value: 
       objectReference: {fileID: 1712811386}
+    - target: {fileID: 3425105498402197052, guid: 1e84857a32815d44783848e70a94c9d3, type: 3}
+      propertyPath: followRange
+      value: 0.7
+      objectReference: {fileID: 0}
     - target: {fileID: 3425105498402197052, guid: 1e84857a32815d44783848e70a94c9d3, type: 3}
       propertyPath: combatManager
       value: 
