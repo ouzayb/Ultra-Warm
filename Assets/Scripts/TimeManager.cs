@@ -6,6 +6,7 @@ public class TimeManager : MonoBehaviour
 {
     [SerializeField] private float timeMultiplier;
     [SerializeField] private float timeDistance;
+    [SerializeField] private AudioSource sound;
     [SerializeField] private float savedTime = -1;
     [SerializeField] private float stopTime = 1.5f;
     [SerializeField] bool stop = false;
@@ -60,8 +61,9 @@ public class TimeManager : MonoBehaviour
             }
             t += Time.unscaledDeltaTime;
             var ratio = t / duration;
-
-            Time.timeScale = Mathf.Lerp(0, 1, stopCurve.Evaluate(inverse ? 1 - ratio : ratio));
+            timeMultiplier = Mathf.Lerp(0, 1, stopCurve.Evaluate(inverse ? 1 - ratio : ratio));
+            Time.timeScale = timeMultiplier;
+            sound.pitch = timeMultiplier;
             yield return null;
         }
         inProgress = false;
