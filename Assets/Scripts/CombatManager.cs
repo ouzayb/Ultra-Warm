@@ -14,6 +14,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private float attackRange; // DEFAULT 0.5f
     [SerializeField] private float nextAttackTime; // DEFAULT 0f
     [SerializeField] private float attackRate; // DEFAULT 2f
+    [SerializeField] private int attackPenalty;
     public int attackDamage; // DEFAULT 40
 
     void Start()
@@ -39,6 +40,7 @@ public class CombatManager : MonoBehaviour
     void Attack() 
     {
         animator.SetTrigger("PlayerAttack");
+        healthManager.getDamaged(attackPenalty);
         Collider2D[] hitEnemies = Physics2D.OverlapCircleAll(attackPoint.position, attackRange, enemyLayer);
         foreach (Collider2D enemy in hitEnemies)
         {
@@ -49,10 +51,9 @@ public class CombatManager : MonoBehaviour
     public void PlayerTakeDamage(int damage)
     {
         healthManager.getDamaged(damage);
-        if (healthManager.getHealth() > 0)
+        if (healthManager.getHealth() > 0 )
         {
             animator.SetTrigger("GetDamage");
-            //Debug.Log("Damaged");
         }
     }
 
@@ -64,9 +65,6 @@ public class CombatManager : MonoBehaviour
 
     void PlayerDie()
     {
-            //Debug.Log("Dead");
-            //playerRB.velocity = new Vector2(0, 0);
-            //playerRB.isKinematic = true;
             animator.SetTrigger("OnDead");
             playerAlive = false;
             //SceneManager.LoadScene(id);
