@@ -238,7 +238,7 @@ MonoBehaviour:
   playerAlive: 1
   id: 0
   firingPenalty: 0
-  attackRange: 0.12
+  attackRange: 0.19
   nextAttackTime: 0
   attackRate: 2
   attackDamage: 40
@@ -278,6 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1715d4348df50914abafa5d427e7ea81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerMaxHealth: 100
-  currentHealth: 100
+  clock: {fileID: 0}
+  playerMaxHealth: 20
+  currentHealth: 10
   timeSaved: 0
