@@ -473,7 +473,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1038636898}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -882,7 +882,7 @@ GameObject:
   - component: {fileID: 1561851460}
   - component: {fileID: 1561851459}
   - component: {fileID: 1561851458}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ninja
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -986,11 +986,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3341bee02efd6844694007b9d886fc50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodPrefab: {fileID: 0}
   target: {fileID: 830913958}
   enemyRB: {fileID: 1712811386}
   animator: {fileID: 2096633955}
   combatManager: {fileID: 830913960}
   facingLeft: 1
+  enemyAlive: 1
   enemySpeed: 0.7
   enemyMaxHealth: 300
   enemyCurrentHealth: 300
@@ -1197,6 +1199,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1712811386}
     - target: {fileID: 3854475312913314509, guid: 1e84857a32815d44783848e70a94c9d3, type: 3}
+      propertyPath: bloodPrefab
+      value: 
+      objectReference: {fileID: 2551481242889779814, guid: 789a3228d2106e44e8c712d151d24431, type: 3}
+    - target: {fileID: 3854475312913314509, guid: 1e84857a32815d44783848e70a94c9d3, type: 3}
       propertyPath: combatManager
       value: 
       objectReference: {fileID: 830913960}
@@ -1217,6 +1223,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7219717345626681641, guid: bdf824762d4051f459ec7714326670f9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7219717346044732676, guid: bdf824762d4051f459ec7714326670f9, type: 3}
       propertyPath: knockbackManager
       value: 
@@ -1265,6 +1275,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7219717347217037060, guid: bdf824762d4051f459ec7714326670f9, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219717347219928900, guid: bdf824762d4051f459ec7714326670f9, type: 3}
+      propertyPath: groundCheckLayer.m_Bits
+      value: 264
+      objectReference: {fileID: 0}
     - target: {fileID: 7219717347219928902, guid: bdf824762d4051f459ec7714326670f9, type: 3}
       propertyPath: m_Material
       value: 
@@ -1272,6 +1290,10 @@ PrefabInstance:
     - target: {fileID: 7219717347219928904, guid: bdf824762d4051f459ec7714326670f9, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7219717347219928904, guid: bdf824762d4051f459ec7714326670f9, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 7219717347219928906, guid: bdf824762d4051f459ec7714326670f9, type: 3}
       propertyPath: clock

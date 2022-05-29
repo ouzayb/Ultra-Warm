@@ -3,12 +3,13 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
+    public GameObject bloodPrefab;
     public Transform target;
     public Rigidbody2D enemyRB;
     public Animator animator;
     public CombatManager combatManager;
     public bool facingLeft = true;
-
+    public bool enemyAlive = true;
     [SerializeField] private float enemySpeed;
     [SerializeField] private int enemyMaxHealth;
     [SerializeField] private int enemyCurrentHealth;
@@ -63,7 +64,12 @@ public class EnemyManager : MonoBehaviour
         else if (enemyCurrentHealth <= 0)
         {
             animator.SetBool("IsDead", true);
-            //GetComponent<Collider2D>().enabled = false;
+            int LayerEnemyDead = LayerMask.NameToLayer("EnemyDead");
+            gameObject.layer = LayerEnemyDead;
+            enemyAlive = false;
+            GameObject blood = Instantiate(bloodPrefab,transform);
+            enemyRB.velocity = new Vector3(0, 0, 0);
+            enemyRB.isKinematic = true;
             this.enabled = false;
         }
     }
@@ -109,7 +115,7 @@ public class EnemyManager : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if(other.gameObject.tag == "Player")
+        if(other.gameObject.tag == "Player" && enemyAlive)
         {
             AttackPlayer();
         }

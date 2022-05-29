@@ -145,11 +145,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3341bee02efd6844694007b9d886fc50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bloodPrefab: {fileID: 2551481242889779814, guid: 789a3228d2106e44e8c712d151d24431, type: 3}
   target: {fileID: 0}
   enemyRB: {fileID: 1857302640205184776}
   animator: {fileID: 1857302640363063825}
   combatManager: {fileID: 0}
   facingLeft: 1
+  enemyAlive: 1
   enemySpeed: 0.8
   enemyMaxHealth: 300
   enemyCurrentHealth: 300
