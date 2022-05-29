@@ -20,6 +20,7 @@ public class HurtTextController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("asd bitch");
         float progress = (Time.time - fadeStartTime) / fadeDuration;
         if (progress <= 1)
         {

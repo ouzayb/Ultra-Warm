@@ -10,11 +10,13 @@ public class HurtTextManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKeyDown("k")) CreateText();
     }
 
-    public void CreateText(int damage)
+    public void CreateText(/*int damage*/)
     {
+        Debug.Log("bbob");
         GameObject DamageText = Instantiate(damageTextPrefab, transform);
-        DamageText.GetComponent<TextMeshPro>().SetText("-" + damage.ToString() + " seconds lost");
+        DamageText.GetComponent<TextMeshPro>().text= "- hhhhhhhhhhhh" /*+ damage.ToString() + " seconds lost"*/;
     }
 }

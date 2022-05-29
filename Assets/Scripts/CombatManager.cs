@@ -26,10 +26,10 @@ public class CombatManager : MonoBehaviour
 
     void Update()
     {
-        if(Time.time >= nextAttackTime && Input.GetAxis("Fire") == 1 && playerAlive)
+        if(Time.timeSinceLevelLoad >= nextAttackTime && Input.GetAxis("Fire") == 1 && playerAlive)
         {
                 Attack();
-                nextAttackTime = Time.time + 1f / attackRate;
+                nextAttackTime = Time.timeSinceLevelLoad + 1f / attackRate;
         }
         if (healthManager.getHealth() <= 0 && playerAlive)
         {
