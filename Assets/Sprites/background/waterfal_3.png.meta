@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fcc79b0521c42fb4fa571ca265f5bb5c
+guid: d6073e1ea20dc3b4f8bdf9ebf9c3c0ad
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 479756536191138068
-    second: waterfall_3_0
+      213: 1457182572307174456
+    second: waterfal_3_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -94,13 +94,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: waterfall_3_0
+      name: waterfal_3_0
       rect:
         serializedVersion: 2
-        x: 127
-        y: 20
+        x: 75
+        y: 1
         width: 113
-        height: 118
+        height: 249
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -108,8 +108,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 419385e170078a600800000000000000
-      internalID: 479756536191138068
+      spriteID: 834524b34d3f83410800000000000000
+      internalID: 1457182572307174456
       vertices: []
       indices: 
       edges: []
