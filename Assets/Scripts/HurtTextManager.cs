@@ -5,7 +5,7 @@ using TMPro;
 
 public class HurtTextManager : MonoBehaviour
 {
-    public GameObject damageTextPrefab, enemyInstance;
+    public GameObject damageTextPrefab;
 
     // Update is called once per frame
     void Update()
