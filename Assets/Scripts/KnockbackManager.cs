@@ -28,7 +28,7 @@ public class KnockbackManager : MonoBehaviour
         }
         else
         {
-            StartCoroutine(Knocking(target, strenght, jump, true));
+            StartCoroutine(Knocking(target, strenght, jump, false));
             inProgress = true;
         }
     }
@@ -42,8 +42,8 @@ public class KnockbackManager : MonoBehaviour
                 t += Time.deltaTime;
                 var ratio = t / knocbackTime;
 
-                if(left) target.localPosition -= new Vector3(strenght * timeScale, strenght * timeScale / jump, 0);
-                else  target.localPosition += new Vector3(strenght * timeScale, strenght * timeScale / jump, 0);
+                if(left) target.localPosition -= new Vector3(strenght, -strenght / jump, 0);
+                else  target.localPosition += new Vector3(strenght , strenght / jump, 0);
                 yield return null;
             }
             inProgress = false;

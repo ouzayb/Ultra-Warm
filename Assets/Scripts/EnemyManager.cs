@@ -58,7 +58,7 @@ public class EnemyManager : MonoBehaviour
         enemyCurrentHealth -= damage;
         if (enemyCurrentHealth > 0)
         {
-        animator.SetTrigger("IsDamaged");
+            animator.SetTrigger("IsDamaged");
         }
         else if (enemyCurrentHealth <= 0)
         {

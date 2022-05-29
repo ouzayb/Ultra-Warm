@@ -8,6 +8,7 @@ public class CombatManager : MonoBehaviour
     public LayerMask enemyLayer;
     public Transform attackPoint;
     public HealthManager healthManager;
+    public KnockbackManager knockbackManager;
     public bool playerAlive = true;
     [SerializeField] private int id;
     [SerializeField] private float firingPenalty;
@@ -45,6 +46,7 @@ public class CombatManager : MonoBehaviour
         foreach (Collider2D enemy in hitEnemies)
         {
             enemy.GetComponent<EnemyManager>().EnemyTakeDamage(attackDamage);
+            knockbackManager.Knock(transform, enemy.transform, 0.018f, 55f);
         }
     }
 
