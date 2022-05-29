@@ -1152,6 +1152,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: af86ab31bc1939b4cbe30276a8245d88, type: 3}
+--- !u!114 &1840851563 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7440060996578027861, guid: af86ab31bc1939b4cbe30276a8245d88, type: 3}
+  m_PrefabInstance: {fileID: 1742806584}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8535ada94830a09419b779e4613781f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!95 &2096633955 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 8493745593742385324, guid: 5cce3b5a4924e8a42a27d6821e3c3f8e, type: 3}
@@ -1208,6 +1219,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 345182934062212540, guid: bdf824762d4051f459ec7714326670f9, type: 3}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 1840851563}
     - target: {fileID: 345182934899242992, guid: bdf824762d4051f459ec7714326670f9, type: 3}
       propertyPath: m_Name
       value: Player
