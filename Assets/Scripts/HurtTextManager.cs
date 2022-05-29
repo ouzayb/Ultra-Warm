@@ -15,7 +15,7 @@ public class HurtTextManager : MonoBehaviour
 
     public void CreateText(int damage)
     {
-        GameObject DamageText = Instantiate(damageTextPrefab, this.transform.position,new Quaternion(0,0,0,0),parent.transform);
+        GameObject DamageText = Instantiate(damageTextPrefab, this.transform.position,new Quaternion(0,0,0,0),textParent.transform);
         DamageText.GetComponent<TextMesh>().text= "-" + damage.ToString() + " seconds lost";
     }
 }
