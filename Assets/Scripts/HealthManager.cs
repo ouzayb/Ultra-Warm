@@ -9,7 +9,7 @@ public class HealthManager : MonoBehaviour
     [SerializeField] private HurtTextManager TextManager;
     [SerializeField] private Text clock; 
     [SerializeField] private float playerMaxHealth;
-    public float currentHealth;
+    [SerializeField] private float currentHealth;
     [SerializeField] private float timeSaved=0;
     // Start is called before the first frame update
     void Start()

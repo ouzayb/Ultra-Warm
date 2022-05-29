@@ -7,7 +7,6 @@ public class PlayerController: MonoBehaviour
 
     public Rigidbody2D playerRB;
     private Animator playerAnim;
-    private HealthManager Healthmnag;
     public CombatManager combatManager;
     public Transform groundCheckPosition; // Location of object to collide with ground.
     public float groundCheckRadius; // Ground radius.
@@ -95,7 +94,6 @@ public class PlayerController: MonoBehaviour
         if (Input.GetAxis("Sit") == 1)
         {
             playerAnim.SetBool("IsSit", true);
-            Healthmnag.currentHealth += 3 * Time.deltaTime;
             Time.timeScale = 1;
         }
         else
