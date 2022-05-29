@@ -44,7 +44,13 @@ public class PlayerController: MonoBehaviour
         if(combatManager.playerAlive)
         {
         playerRB.velocity = new Vector2(input.x * moveSpeed, playerRB.velocity.y);
-        playerAnim.SetFloat("PlayerSpeed", Mathf.Abs(input.x * moveSpeed));
+            playerAnim.SetFloat("PlayerSpeed", Mathf.Abs(playerRB.velocity.x * moveSpeed));
+            //playerAnim.SetBool("IsRunning", ) // vel > 1 && !isDead && !isJump
+        }
+        else
+        {
+            playerAnim.SetFloat("PlayerSpeed", 0);
+
         }
     }
 
@@ -72,9 +78,13 @@ public class PlayerController: MonoBehaviour
     {
         if (input.y > 0 && isGrounded && (nextJumpTime < Time.timeSinceLevelLoad))
         {
-            playerAnim.SetTrigger("IsGrounded");
+            playerAnim.SetBool("IsGrounded", true);
             nextJumpTime = Time.timeSinceLevelLoad + jumpFrequency;
             playerRB.velocity = (new Vector2(playerRB.velocity.x, jumpSpeed));
+        }
+        else
+        {
+            playerAnim.SetBool("IsGrounded", false);
         }
     }
 
@@ -93,5 +103,10 @@ public class PlayerController: MonoBehaviour
         {
             playerAnim.SetBool("IsSit", false);
         }
+    }
+
+    public void Death()
+    {
+
     }
 }
