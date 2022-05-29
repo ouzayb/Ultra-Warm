@@ -76,7 +76,6 @@ GameObject:
   - component: {fileID: 2028748874559071748}
   - component: {fileID: 2028748874559071751}
   - component: {fileID: 2028748874559071749}
-  - component: {fileID: -1180290262933065424}
   m_Layer: 4
   m_Name: Player
   m_TagString: Player
@@ -285,17 +284,3 @@ MonoBehaviour:
   playerMaxHealth: 20
   currentHealth: 10
   timeSaved: 0
---- !u!114 &-1180290262933065424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2028748874559071752}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ef0d7ce1862d4044b698492e3f453f1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageTextPrefab: {fileID: 0}
-  enemyInstance: {fileID: 0}

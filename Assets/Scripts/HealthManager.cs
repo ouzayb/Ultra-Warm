@@ -26,7 +26,7 @@ public class HealthManager : MonoBehaviour
 
     public void getDamaged(float damage)
     {
-        TextManager.CreateText((int)damage);
+        //TextManager.CreateText((int)damage);
         currentHealth = currentHealth < damage ? 0 : currentHealth - damage;
     }
     public void getDamagedWOtext(float damage)
