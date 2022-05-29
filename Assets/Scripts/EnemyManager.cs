@@ -13,7 +13,7 @@ public class EnemyManager : MonoBehaviour
     [SerializeField] private int enemyMaxHealth;
     [SerializeField] private int enemyCurrentHealth;
     [SerializeField] private int enemyDamage;
-    [SerializeField] private int followRange;
+    [SerializeField] private float followRange;
 
     void Start()
     {
@@ -24,9 +24,16 @@ public class EnemyManager : MonoBehaviour
 
     void Update()
     {
+        animator.SetFloat("EnemySpeed", Mathf.Abs(enemyRB.velocity.x));
         float difference = transform.position.x - target.position.x;
-        if(Math.Abs(difference) > followRange)
+        if(Math.Abs(difference) < followRange)
+        {
         FollowPlayer();
+        }
+        else
+        {
+            enemyRB.velocity = new Vector2(0, 0);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -45,15 +52,14 @@ public class EnemyManager : MonoBehaviour
 
         if (enemyCurrentHealth <= 0)
         {
-            //animator.SetBool("IsDead", true);
-            GetComponent<Collider2D>().enabled = false;
+            animator.SetBool("IsDead", true);
+            //GetComponent<Collider2D>().enabled = false;
             this.enabled = false;
         }
     }
 
     private void FollowPlayer()
     {
-        animator.SetFloat("EnemySpeed", Mathf.Abs(enemySpeed));
         float difference = transform.position.x - target.position.x;
         if (combatManager.playerAlive && difference < 0)
         {
@@ -79,6 +85,12 @@ public class EnemyManager : MonoBehaviour
         }
     }
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, followRange);
+    }
+
     public void AttackPlayer()
     {
         combatManager.GetComponent<CombatManager>().PlayerTakeDamage(enemyDamage);
@@ -90,5 +102,10 @@ public class EnemyManager : MonoBehaviour
         {
             AttackPlayer();
         }
+    }
+
+    public void EnemyDie()
+    {
+
     }
 }
