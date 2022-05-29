@@ -47,6 +47,6 @@ public class HealthManager : MonoBehaviour
     {
         int minutes = (int)(currentHealth / 60);
         int seconds = (int)(currentHealth % 60);
-        clock.text = minutes.ToString() + ":" + seconds.ToString();
+        clock.text = ((minutes < 10) ? "0" + minutes.ToString() : minutes.ToString()) + ":" + ((seconds < 10)? "0" + seconds.ToString() : seconds.ToString());
     }
 }
