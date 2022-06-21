@@ -4417,7 +4417,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3913221468061103772, guid: 1e84857a32815d44783848e70a94c9d3, type: 3}
       propertyPath: followRange
+<<<<<<< Updated upstream
       value: 0.55
+=======
+      value: 0.49
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 3913221468061103772, guid: 1e84857a32815d44783848e70a94c9d3, type: 3}
       propertyPath: combatManager
@@ -14071,7 +14075,11 @@ PrefabInstance:
       objectReference: {fileID: 1491721959}
     - target: {fileID: 8493745594104326212, guid: 5cce3b5a4924e8a42a27d6821e3c3f8e, type: 3}
       propertyPath: followRange
+<<<<<<< Updated upstream
       value: 1.32
+=======
+      value: 1.44
+>>>>>>> Stashed changes
       objectReference: {fileID: 0}
     - target: {fileID: 8493745594104326212, guid: 5cce3b5a4924e8a42a27d6821e3c3f8e, type: 3}
       propertyPath: combatManager
