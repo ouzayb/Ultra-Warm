@@ -14,7 +14,7 @@ public class Scener : MonoBehaviour
     bool teleport = false;
     void Start()
     {
-        Time.timeScale = 1;
+        
     }
 
     // Update is called once per frame

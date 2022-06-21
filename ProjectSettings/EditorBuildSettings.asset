@@ -8,7 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Main Menu.unity
     guid: 632d18f2cf1bb3d4fb3801f675b40eea
-  - enabled: 1
-    path: Assets/Scenes/Zeyno.unity
-    guid: 64f76914f963a144fa7ade6af5739a22
   m_configObjects: {}

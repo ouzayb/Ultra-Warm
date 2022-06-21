@@ -59,9 +59,8 @@ public class PlayerController: MonoBehaviour
     {
         if (combatManager.playerAlive)
         {
-            input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        input = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
         }
-        else input = new Vector2(0,0);
     }
 
     void FlipFace()

@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -39,10 +38,6 @@ public class CombatManager : MonoBehaviour
         {
             PlayerDie();
         }
-        if (Input.GetKeyDown("r"))
-        {
-            PlayerDie();
-        }
     }
 
     void Attack() 
@@ -79,13 +74,6 @@ public class CombatManager : MonoBehaviour
     {
             animator.SetTrigger("OnDead");
             playerAlive = false;
-        StartCoroutine(Reastart());
-    }
-
-    IEnumerator Reastart()
-    {
-        yield return new WaitForSecondsRealtime(3);
-        SceneManager.LoadScene(0);
-
+            //SceneManager.LoadScene(id);
     }
 }
